@@ -10,12 +10,18 @@ const queryClient = new QueryClient({
   },
 });
 
-function _app({ Component, pageProps }: AppProps) {
+type CustomAppProps = Omit<AppProps, "pageProps"> & {
+  pageProps: {
+    dehydratedState: unknown;
+  };
+};
+function _app({ Component, pageProps }: CustomAppProps) {
+  const { dehydratedState, ...restProps } = pageProps;
   return (
     <CookiesProvider>
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+        <Hydrate state={dehydratedState}>
+          <Component {...restProps} />
         </Hydrate>
         <ReactQueryDevtools position="bottom-right" />
       </QueryClientProvider>
