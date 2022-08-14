@@ -1,8 +1,8 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { CookiesProvider } from "react-cookie";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { CookiesProvider } from 'react-cookie';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,7 +10,7 @@ const queryClient = new QueryClient({
   },
 });
 
-type CustomAppProps = Omit<AppProps, "pageProps"> & {
+type CustomAppProps = Omit<AppProps, 'pageProps'> & {
   pageProps: Record<string, never>;
 };
 function _app({ Component, pageProps }: CustomAppProps) {
