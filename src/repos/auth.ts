@@ -37,7 +37,7 @@ export async function login(payload: LoginRequestParams) {
   }
 
   //
-  // TODO: Apply remembe me when creating backend session
+  // TODO: Apply remember me when creating backend session
   // setCookie('user', req.results, {
   //   maxAge: payload.remember
   //     ? 60 * 60 * 24 * 7 // 7 days
