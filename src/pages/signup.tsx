@@ -6,20 +6,19 @@ import clsx from 'clsx';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { Layout } from '~/components/layout';
 import { AlertDanger, AlertInfo, AlertSuccess } from '~/components/alerts';
+import { Layout } from '~/components/layout';
 
-import { useLoginMutation } from '~/domains/auth/hooks';
+import { useSignupMutation } from '~/domains/auth/hooks';
 import { useStorage, writeStorage } from '~/domains/storage/hooks';
 
 import { UserNoPassword } from '~/repos/user';
 
-const LoginPage: NextPage = () => {
+const Signup: NextPage = () => {
   const router = useRouter();
-  const loginMutation = useLoginMutation();
+  const signupMutation = useSignupMutation();
   const user = useStorage<UserNoPassword>('user');
 
-  const inputRememberRef = useRef<HTMLInputElement>(null);
   const inputEmailRef = useRef<HTMLInputElement>(null);
   const inputPasswordRef = useRef<HTMLInputElement>(null);
 
@@ -27,7 +26,7 @@ const LoginPage: NextPage = () => {
 
   useEffect(() => {
     void (async () => {
-      if (user && router.isReady) {
+      if (user) {
         await router.push({
           pathname: redirectTo as string,
           query: router.query,
@@ -37,12 +36,12 @@ const LoginPage: NextPage = () => {
   }, [user, router, redirectTo]);
 
   useEffect(() => {
-    if (loginMutation.error?.fields.email) {
+    if (signupMutation.error?.fields?.email) {
       inputEmailRef.current?.focus();
-    } else if (loginMutation.error?.fields.password) {
+    } else if (signupMutation.error?.fields?.password) {
       inputPasswordRef.current?.focus();
     }
-  }, [loginMutation.error]);
+  }, [signupMutation.error]);
 
   function onSubmitLoginForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -50,10 +49,9 @@ const LoginPage: NextPage = () => {
     const $email = elements.namedItem('email') as HTMLInputElement;
     const $password = elements.namedItem('password') as HTMLInputElement;
     void (async () => {
-      const req = await loginMutation.mutateAsync({
+      const req = await signupMutation.mutateAsync({
         email: $email.value,
         password: $password.value,
-        remember: inputRememberRef.current ? inputRememberRef.current.checked : false,
       });
 
       writeStorage('user', req.results);
@@ -80,25 +78,24 @@ const LoginPage: NextPage = () => {
         ) : (
           <>
             <div className="mb-4 grid grid-cols-2 items-center">
-              <h1 className="text-4xl font-semibold">Login</h1>
-              {loginMutation.isLoading && (
+              <h1 className="text-4xl font-semibold">Signup</h1>
+              {signupMutation.isLoading && (
                 <AlertInfo id="verifying-credentials-info" className="justify-self-end">
-                  Verifying...
+                  Creating...
                 </AlertInfo>
               )}
-              {loginMutation.error?.message && (
-                <AlertDanger id="login-form-error" label="Login" className="justify-self-end">
-                  {loginMutation.error?.message}
+              {signupMutation.error?.message && (
+                <AlertDanger id="login-form-error" label="Signup" className="justify-self-end">
+                  {signupMutation.error?.message}
                 </AlertDanger>
               )}
             </div>
             <form onSubmit={onSubmitLoginForm} noValidate>
               <fieldset
                 className={clsx('space-y-6', {
-                  'disabled:opacity-50': loginMutation.isLoading,
-                  'disabled:opacity-25': loginMutation.isSuccess,
+                  'disabled:opacity-50': signupMutation.isLoading,
                 })}
-                disabled={loginMutation.isLoading || loginMutation.isSuccess}
+                disabled={signupMutation.isLoading}
               >
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -113,12 +110,12 @@ const LoginPage: NextPage = () => {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      aria-invalid={loginMutation?.error?.fields?.email ? true : undefined}
+                      aria-invalid={signupMutation?.error?.fields?.email ? true : undefined}
                       aria-describedby="email-error"
                       className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
                     />
-                    {loginMutation?.error?.fields?.email && (
-                      <AlertDanger id="email-error">{loginMutation?.error?.fields?.email}</AlertDanger>
+                    {signupMutation?.error?.fields?.email && (
+                      <AlertDanger id="email-error">{signupMutation?.error?.fields?.email}</AlertDanger>
                     )}
                   </div>
                 </div>
@@ -134,12 +131,12 @@ const LoginPage: NextPage = () => {
                       name="password"
                       type="password"
                       autoComplete="current-password"
-                      aria-invalid={loginMutation?.error?.fields?.password ? true : undefined}
+                      aria-invalid={signupMutation?.error?.fields?.password ? true : undefined}
                       aria-describedby="password-error"
                       className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
                     />
-                    {loginMutation?.error?.fields?.password && (
-                      <AlertDanger id="password-error">{loginMutation?.error?.fields?.password}</AlertDanger>
+                    {signupMutation?.error?.fields?.password && (
+                      <AlertDanger id="password-error">{signupMutation?.error?.fields?.password}</AlertDanger>
                     )}
                   </div>
                 </div>
@@ -149,34 +146,18 @@ const LoginPage: NextPage = () => {
                   type="submit"
                   className="w-full rounded bg-blue-500 py-2 px-4 text-white hover:bg-blue-600 focus:bg-blue-400"
                 >
-                  Log in
+                  Create Account
                 </button>
-                <div className="grid grid-cols-2">
-                  <div className="items-start">
-                    <div className="flex items-center">
-                      <input
-                        ref={inputRememberRef}
-                        id="remember"
-                        name="remember"
-                        type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                      />
-                      <label htmlFor="remember" className="ml-2 block text-sm text-gray-900">
-                        Remember me
-                      </label>
-                    </div>
-                  </div>
-                  <div className="text-right text-sm text-gray-500">
-                    <p>Don&rsquo;t have an account?</p>
-                    <Link
-                      href={{
-                        pathname: '/signup',
-                        query: router.query,
-                      }}
-                    >
-                      <a className="text-blue-500 underline">Signup</a>
-                    </Link>
-                  </div>
+                <div className="text-right text-sm text-gray-500">
+                  <p>Already have an account?</p>
+                  <Link
+                    href={{
+                      pathname: '/login',
+                      query: router.query,
+                    }}
+                  >
+                    <a className="text-blue-500 underline">Login</a>
+                  </Link>
                 </div>
               </fieldset>
             </form>
@@ -187,4 +168,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default Signup;
