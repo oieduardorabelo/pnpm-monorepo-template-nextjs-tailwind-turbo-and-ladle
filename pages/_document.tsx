@@ -16,7 +16,7 @@ function _document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="dark antialiased">
+      <body className="antialiased">
         <Main />
         <NextScript />
       </body>
