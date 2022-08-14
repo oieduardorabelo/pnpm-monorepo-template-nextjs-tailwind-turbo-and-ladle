@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "template-nextjs-react-query-typescript",
+  "version": "0.0.1",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
