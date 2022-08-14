@@ -3,12 +3,12 @@ import Head from "next/head";
 
 import { Layout } from "~/components/layout";
 
-const HomePage: NextPage = () => {
+const LoginPage: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Home - React project template</title>
-        <meta name="description" content="Welcome to React project template" />
+        <title>Login - React project template</title>
+        <meta name="description" content="Login" />
       </Head>
 
       <h1 className="text-center">Welcome to React project template</h1>
@@ -16,4 +16,4 @@ const HomePage: NextPage = () => {
   );
 };
 
-export default HomePage;
+export default LoginPage;

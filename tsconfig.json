@@ -31,6 +31,9 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "moduleResolution": "node",
+    "paths": {
+      "~/*": ["./*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
 
