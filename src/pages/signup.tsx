@@ -27,7 +27,7 @@ const Signup: NextPage = () => {
 
   useEffect(() => {
     void (async () => {
-      if (user) {
+      if (router.isReady && user.isLoading === false && user.value !== null) {
         await router.push({
           pathname: redirectTo as string,
           query: router.query,
@@ -76,9 +76,9 @@ const Signup: NextPage = () => {
       </Head>
 
       <div className="flex flex-col justify-center min-h-full w-full max-w-md">
-        {user ? (
+        {user.value ? (
           <AlertSuccess id="user-exists" label="Hello">
-            <b>{user.email}</b>
+            <b>{user.value.email}</b>
           </AlertSuccess>
         ) : (
           <>

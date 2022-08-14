@@ -13,11 +13,10 @@ export const Navigation = () => {
   function onClickLogout(event: SyntheticEvent<HTMLButtonElement>) {
     event.preventDefault();
     void (async () => {
-      deleteFromStorage('user');
       await router.push({
-        pathname: '/login',
-        query: router.query,
+        pathname: '/',
       });
+      deleteFromStorage('user');
     })();
   }
   return (
@@ -26,7 +25,14 @@ export const Navigation = () => {
         <li>
           <ActiveLink href="/">Home</ActiveLink>
         </li>
-        {user === null && (
+        {user.value && (
+          <>
+            <li>
+              <ActiveLink href="/users">Users</ActiveLink>
+            </li>
+          </>
+        )}
+        {user.value === null && (
           <>
             <li>
               <ActiveLink href="/login">Login</ActiveLink>
@@ -37,11 +43,11 @@ export const Navigation = () => {
           </>
         )}
       </ul>
-      {user && (
+      {user.value && (
         <ul className="flex flex-1 justify-center justify-self-end gap-4">
           <li>
             <span className="bg-orange-200 text-orange-800 py-2 px-4 inline-block">
-              Hello, <b>{user.username}</b>
+              Hello, <b>{user.value.username}</b>
             </span>
           </li>
           <li>

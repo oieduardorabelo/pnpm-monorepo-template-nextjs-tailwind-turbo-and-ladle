@@ -10,7 +10,7 @@ import { Layout } from '~/components/layout';
 import { AlertDanger, AlertInfo, AlertSuccess } from '~/components/alerts';
 
 import { useLoginMutation } from '~/domains/auth/hooks';
-import { useStorage, writeStorage } from '~/domains/storage/hooks';
+import { useFlashMessageStorage, useStorage, writeStorage } from '~/domains/storage/hooks';
 
 import { UserNoPassword } from '~/repos/user';
 
@@ -18,6 +18,7 @@ const LoginPage: NextPage = () => {
   const router = useRouter();
   const loginMutation = useLoginMutation();
   const user = useStorage<UserNoPassword>('user');
+  const loginRequiredFlash = useFlashMessageStorage<string>('loginRequired');
 
   const inputRememberRef = useRef<HTMLInputElement>(null);
   const inputEmailRef = useRef<HTMLInputElement>(null);
@@ -27,7 +28,7 @@ const LoginPage: NextPage = () => {
 
   useEffect(() => {
     void (async () => {
-      if (user && router.isReady) {
+      if (router.isReady && user.isLoading === false && user.value !== null) {
         await router.push({
           pathname: redirectTo as string,
           query: router.query,
@@ -73,12 +74,17 @@ const LoginPage: NextPage = () => {
       </Head>
 
       <div className="flex flex-col justify-center min-h-full w-full max-w-md">
-        {user ? (
+        {user.value ? (
           <AlertSuccess id="user-exists" label="Hello">
-            <b>{user.email}</b>
+            <b>{user.value.email}</b>
           </AlertSuccess>
         ) : (
           <>
+            {loginRequiredFlash && (
+              <AlertDanger id="login-required-flash" className="mb-4">
+                {loginRequiredFlash}
+              </AlertDanger>
+            )}
             <div className="mb-4 grid grid-cols-2 items-center">
               <h1 className="text-4xl font-semibold">Login</h1>
               {loginMutation.isLoading && (
