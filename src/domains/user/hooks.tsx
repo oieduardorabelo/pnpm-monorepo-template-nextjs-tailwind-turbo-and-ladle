@@ -1,9 +1,15 @@
-import { useMutation } from 'react-query';
+import { useQuery, UseQueryOptions } from 'react-query';
 
-import { createUser, type User } from '~/repos/user';
+import { mockdb, UserNoPassword } from '~/repos/user';
 
-export function useUserCreateMutation() {
-  return useMutation((newUser: User) => {
-    return createUser(newUser);
-  });
+export function useUsersQuery(
+  options?: Omit<UseQueryOptions<unknown, unknown, UserNoPassword[], string[]>, 'queryKey' | 'queryFn'> | undefined
+) {
+  return useQuery<unknown, unknown, UserNoPassword[], string[]>(
+    ['useUsersQuery'],
+    () => {
+      return mockdb.getUsers();
+    },
+    options
+  );
 }

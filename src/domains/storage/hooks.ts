@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocalStorage, writeStorage, deleteFromStorage } from '@rehooks/local-storage';
 
 export { writeStorage, deleteFromStorage, useLocalStorage };
@@ -17,7 +17,7 @@ export function useStorage<T>(key: string) {
 export function useFlashMessageStorage<T>(key: string) {
   const flashKey = `flash.${key}`;
   const [_storage] = useLocalStorage<T>(flashKey);
-  const message = useMemo(() => _storage, []);
+  const [message] = useState(_storage);
 
   useEffect(() => {
     deleteFromStorage(flashKey);

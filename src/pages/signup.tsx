@@ -133,7 +133,6 @@ const Signup: NextPage = () => {
                       ref={inputEmailRef}
                       id="email"
                       required
-                      autoFocus={true}
                       name="email"
                       type="email"
                       autoComplete="email"
