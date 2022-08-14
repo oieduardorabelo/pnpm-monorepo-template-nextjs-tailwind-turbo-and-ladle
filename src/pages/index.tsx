@@ -7,11 +7,11 @@ const HomePage: NextPage = () => {
   return (
     <Layout>
       <Head>
-        <title>Home - React project template</title>
-        <meta name="description" content="Welcome to React project template" />
+        <title>Home - Project Template</title>
+        <meta name="description" content="Welcome to Project Template" />
       </Head>
 
-      <h1 className="text-center">Welcome to React project template</h1>
+      <h1 className="text-center">Welcome to Project Template</h1>
     </Layout>
   );
 };
