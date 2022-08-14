@@ -50,6 +50,7 @@ export async function login(payload: LoginRequestParams) {
 }
 
 export type SignupRequestParams = {
+  username: string;
   email: string;
   password: string;
 };

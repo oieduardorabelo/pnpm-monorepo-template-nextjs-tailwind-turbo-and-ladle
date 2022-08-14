@@ -21,6 +21,7 @@ const Signup: NextPage = () => {
 
   const inputEmailRef = useRef<HTMLInputElement>(null);
   const inputPasswordRef = useRef<HTMLInputElement>(null);
+  const inputUserNameRef = useRef<HTMLInputElement>(null);
 
   const redirectTo = router.query.redirectTo || '/';
 
@@ -40,16 +41,20 @@ const Signup: NextPage = () => {
       inputEmailRef.current?.focus();
     } else if (signupMutation.error?.fields?.password) {
       inputPasswordRef.current?.focus();
+    } else if (signupMutation.error?.fields?.username) {
+      inputUserNameRef.current?.focus();
     }
   }, [signupMutation.error]);
 
   function onSubmitLoginForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const { elements } = event.currentTarget;
+    const $username = elements.namedItem('username') as HTMLInputElement;
     const $email = elements.namedItem('email') as HTMLInputElement;
     const $password = elements.namedItem('password') as HTMLInputElement;
     void (async () => {
       const req = await signupMutation.mutateAsync({
+        username: $username.value,
         email: $email.value,
         password: $password.value,
       });
@@ -97,6 +102,28 @@ const Signup: NextPage = () => {
                 })}
                 disabled={signupMutation.isLoading}
               >
+                <div>
+                  <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                    Username
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      ref={inputUserNameRef}
+                      id="username"
+                      required
+                      autoFocus={true}
+                      name="username"
+                      type="text"
+                      aria-invalid={signupMutation?.error?.fields?.username ? true : undefined}
+                      aria-describedby="username-error"
+                      className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+                    />
+                    {signupMutation?.error?.fields?.username && (
+                      <AlertDanger id="username-error">{signupMutation?.error?.fields?.username}</AlertDanger>
+                    )}
+                  </div>
+                </div>
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Email address

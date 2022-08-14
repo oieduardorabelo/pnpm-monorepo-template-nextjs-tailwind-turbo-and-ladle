@@ -1,5 +1,5 @@
 export const mockdb = {
-  users: [{ id: 'zxcv', email: '123@123', password: '123' }] as User[],
+  users: [{ id: 'zxcv', username: 'Doe', email: '123@123', password: '123' }] as User[],
   findUser(email: string, password: string) {
     const user = mockdb.users.find((item) => item.email === email && item.password === password);
     return Promise.resolve(user);
@@ -8,6 +8,7 @@ export const mockdb = {
 
 export type User = {
   id: string;
+  username: string;
   email: string;
   password: string;
 };

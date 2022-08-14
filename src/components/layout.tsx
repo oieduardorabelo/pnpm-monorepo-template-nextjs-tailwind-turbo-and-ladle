@@ -7,7 +7,7 @@ import { Navigation } from '~/components/navigation';
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className="h-screen flex flex-col">
-      <header>
+      <header className="bg-gray-100 border-b border-gray-300">
         <Navigation />
       </header>
       <main className="p-4 flex flex-1 flex-col justify-center items-center">{children}</main>
