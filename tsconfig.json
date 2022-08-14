@@ -32,7 +32,7 @@
     "isolatedModules": true,
     "moduleResolution": "node",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
