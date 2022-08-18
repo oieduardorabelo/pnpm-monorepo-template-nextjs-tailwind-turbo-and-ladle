@@ -3,6 +3,6 @@
   "compilerOptions": {
     "skipLibCheck": true
   },
-  "include": ["src", "vite.config.ts", "postcss.config.cjs", "tailwind.config.js"],
+  "include": ["src", "vite.config.ts", "postcss.config.js", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }
