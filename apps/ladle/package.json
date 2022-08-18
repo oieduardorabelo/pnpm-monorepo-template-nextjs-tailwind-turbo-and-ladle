@@ -10,7 +10,7 @@
     "dev": "run-p dev:*",
     "dev:ladle": "ladle dev",
     "dev:tailwind": "pnpx tailwindcss -i ./styles/global.css -o ./build/output.css --watch",
-    "lint": "DEBUG=eslint:* eslint --ext js,jsx,ts,tsx,cjs,mjs .",
+    "lint": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
     "preview": "ladle preview"
   },
   "dependencies": {
