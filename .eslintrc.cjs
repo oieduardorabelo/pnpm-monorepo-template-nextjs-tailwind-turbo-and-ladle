@@ -17,6 +17,9 @@ module.exports = {
     project: ['./tsconfig.workspace.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
   },
   rules: {
+    // https://nextjs.org/docs/messages/no-html-link-for-pages
+    '@next/next/no-html-link-for-pages': ['error', 'apps/web/src/pages'],
+
     // TypeScript specific rules are disabled by default
     // And enabled in "overrides" for TypeScript files only
     '@typescript-eslint/explicit-member-accessibility': 'off',
