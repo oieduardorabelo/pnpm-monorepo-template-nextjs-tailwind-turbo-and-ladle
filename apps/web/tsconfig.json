@@ -6,6 +6,14 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "next.config.js", "postcss.config.js", "tailwind.config.js", "**/*.ts", "**/*.tsx"],
+  "include": [
+    ".eslintrc.js",
+    "next-env.d.ts",
+    "next.config.js",
+    "postcss.config.js",
+    "tailwind.config.js",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

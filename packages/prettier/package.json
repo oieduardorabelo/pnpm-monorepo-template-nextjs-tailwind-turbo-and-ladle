@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "@monorepo/prettier",
+  "version": "0.0.1",
+  "files": [
+    "prettier.base.js"
+  ],
+  "dependencies": {
+    "prettier": "2.7.1",
+    "prettier-package-json": "2.6.4",
+    "prettier-plugin-tailwindcss": "0.1.13"
+  }
+}

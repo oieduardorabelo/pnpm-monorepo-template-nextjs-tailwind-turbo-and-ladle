@@ -13,6 +13,9 @@
     "dev": {
       "outputs": []
     },
+    "code:format": {
+      "cache": false
+    },
     "lint": {
       "cache": false
     },

@@ -6,9 +6,9 @@
     "build": "turbo run build",
     "code:format": "prettier --write './**/*.{js,jsx,ts,tsx,cjs,mjs}'",
     "code:format:packagejson": "prettier-package-json --write './package.json' './**/*/package.json'",
-    "code:lint": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "lint:monorepo": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
     "prepare": "husky install",
     "test": "turbo run test"
   },
@@ -17,15 +17,10 @@
     "apps/*"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.33.0",
-    "@typescript-eslint/parser": "5.33.0",
-    "eslint": "8.21.0",
-    "eslint-config-next": "12.2.5",
+    "@monorepo/eslint": "workspace:*",
+    "@monorepo/prettier": "workspace:*",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "prettier": "2.7.1",
-    "prettier-package-json": "2.6.4",
-    "prettier-plugin-tailwindcss": "0.1.13",
     "turbo": "1.4.3",
     "typescript": "4.7.4"
   },
