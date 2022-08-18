@@ -1,5 +1,8 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,windows,macos,ts,nextjs
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,macos,ts,nextjs
+### Custom
+build
+
+# Created by https://www.toptal.com/developers/gitignore/api/node,windows,macos,ts,nextjs,storybookjs
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,macos,ts,nextjs,storybookjs
 
 ### macOS ###
 # General
@@ -114,7 +117,6 @@ web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
-build
 
 # Optional npm cache directory
 .npm
@@ -201,6 +203,14 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+### StorybookJs ###
+# gitignore template for the Storybook, UI guide for front apps
+# website: https://storybook.js.org/
+
+storybook-static/
+
+#!! ERROR: ts is undefined. Use list command to see defined gitignore types !!#
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -227,4 +237,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,ts,nextjs
+# End of https://www.toptal.com/developers/gitignore/api/node,windows,macos,ts,nextjs,storybookjs

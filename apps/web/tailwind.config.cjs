@@ -1,6 +1,3 @@
-const tailwindTypography = require('@tailwindcss/typography');
-const tailwindForms = require('@tailwindcss/forms');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -19,5 +16,5 @@ module.exports = {
       },
     },
   },
-  plugins: [tailwindTypography, tailwindForms],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 };
