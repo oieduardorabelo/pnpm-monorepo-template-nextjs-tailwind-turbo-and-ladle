@@ -3,39 +3,24 @@
   "name": "template-nextjs-react-query-typescript",
   "version": "0.0.1",
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
     "format:code": "prettier --write './**/*.{js,ts,jsx,tsx,cjs}'",
-    "lint": "next lint",
-    "prepare": "husky install",
-    "start": "next start"
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "@rehooks/local-storage": "2.4.4",
-    "clsx": "1.2.1",
-    "next": "12.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-query": "3.39.2"
-  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {},
   "devDependencies": {
-    "@tailwindcss/forms": "0.5.2",
-    "@tailwindcss/typography": "0.5.4",
-    "@types/node": "18.7.3",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",
-    "autoprefixer": "10.4.8",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.5",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "postcss": "8.4.16",
     "prettier": "2.7.1",
     "prettier-package-json": "2.6.4",
     "prettier-plugin-tailwindcss": "0.1.13",
-    "tailwindcss": "3.1.8",
     "typescript": "4.7.4"
   },
   "prettier": {

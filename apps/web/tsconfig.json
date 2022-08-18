@@ -1,0 +1,11 @@
+{
+  "extends": "@monorepo/tsconfig/tsconfig.jsx.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "next.config.cjs", "postcss.config.cjs", "tailwind.config.cjs", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
