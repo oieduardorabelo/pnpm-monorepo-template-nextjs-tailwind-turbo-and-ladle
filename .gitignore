@@ -1,5 +1,6 @@
 ### Custom
-build
+build/
+dist/
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,windows,macos,ts,nextjs,storybookjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,windows,macos,ts,nextjs,storybookjs

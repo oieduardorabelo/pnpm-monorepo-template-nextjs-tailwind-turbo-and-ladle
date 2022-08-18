@@ -30,10 +30,5 @@
     "npm": "please-use-pnpm",
     "pnpm": "7.x",
     "yarn": "please-use-pnpm"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

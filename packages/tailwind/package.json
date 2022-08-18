@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@monorepo/tailwind",
+  "files": [
+    "base.css",
+    "tailwindconfig.base.js"
+  ],
+  "dependencies": {
+    "@tailwindcss/forms": "0.5.2",
+    "@tailwindcss/typography": "0.5.4",
+    "postcss": "8.4.16",
+    "tailwindcss": "3.1.8"
+  }
+}

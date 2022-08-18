@@ -5,7 +5,6 @@
     "tsconfig.jsx.json"
   ],
   "devDependencies": {
-    "@monorepo/tsconfig": "workspace:*",
     "typescript": "4.7.4"
   }
 }
