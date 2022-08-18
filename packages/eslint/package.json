@@ -1,10 +1,9 @@
 {
   "private": true,
-  "name": "@monorepo/tailwind",
+  "name": "@monorepo/eslint",
   "version": "0.0.1",
   "files": [
-    "base.css",
-    "tailwindconfig.base.js"
+    "eslint.base.js"
   ],
   "dependencies": {
     "@tailwindcss/forms": "0.5.2",

@@ -1,5 +1,6 @@
 {
-  "name": "ladle",
+  "private": true,
+  "name": "@monorepo/ladle",
   "version": "1.0.0",
   "description": "UI Design System",
   "scripts": {

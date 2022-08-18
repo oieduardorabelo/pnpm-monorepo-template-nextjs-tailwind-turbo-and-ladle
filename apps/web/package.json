@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "web",
+  "name": "@monorepo/web",
   "version": "0.0.1",
   "scripts": {
     "build": "next build",
