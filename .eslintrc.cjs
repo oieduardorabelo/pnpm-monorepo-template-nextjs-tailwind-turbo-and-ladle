@@ -1,6 +1,8 @@
 /**
  * This ESLint file configuration is shared across ALL `/app/*` and `/packages/*`
- * You don't need to define per project ESLint configuration
+ * You don't need to install or define per project ESLint configuration
+ * Use the "overrides" key to apply per project configurtion
+ * Install all ESLint plugins in the top-level package.json (pnpm add -D <name> -w)
  */
 module.exports = {
   root: true,

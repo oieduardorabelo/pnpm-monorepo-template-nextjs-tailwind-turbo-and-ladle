@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "UI Design System",
   "scripts": {
-    "build": "ladle build",
+    "build": "run-p build:*",
+    "build:ladle": "ladle build",
+    "build:tailwind": "pnpx tailwindcss -i ./styles/global.css -o ./build/output.css",
     "dev": "run-p dev:*",
     "dev:ladle": "ladle dev",
     "dev:tailwind": "pnpx tailwindcss -i ./styles/global.css -o ./build/output.css --watch",
+    "lint": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
     "preview": "ladle preview"
   },
   "dependencies": {
