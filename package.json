@@ -3,9 +3,9 @@
   "name": "template-nextjs-react-query-typescript",
   "version": "0.0.1",
   "scripts": {
-    "format:code": "prettier --write './**/*.{js,ts,jsx,tsx,cjs}'",
-    "format:packagejson": "prettier-package-json --write './package.json' './**/*/package.json'",
-    "lint:code": "eslint --ext js --ext jsx --ext ts --ext tsx --ext cjs .",
+    "code:format": "prettier --write './**/*.{js,ts,jsx,tsx,cjs}'",
+    "code:format:packagejson": "prettier-package-json --write './package.json' './**/*/package.json'",
+    "code:lint": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
     "prepare": "husky install"
   },
   "workspaces": [

@@ -35,7 +35,7 @@ const LoginPage: NextPage = () => {
         });
       }
     })();
-  }, [user, router, redirectTo]);
+  }, [redirectTo, router, user.isLoading, user.value]);
 
   useEffect(() => {
     if (loginMutation.error?.fields.email) {

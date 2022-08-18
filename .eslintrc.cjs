@@ -4,22 +4,22 @@
  */
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    node: true,
+  },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'next/core-web-vitals',
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.workspace.json', './apps/*/tsconfig.json', './packages/*/tsconfig.json'],
   },
   rules: {
-    // https://nextjs.org/docs/messages/no-html-link-for-pages
-    '@next/next/no-html-link-for-pages': ['error', 'apps/web/src/pages'],
-
     // TypeScript specific rules are disabled by default
     // And enabled in "overrides" for TypeScript files only
     '@typescript-eslint/explicit-member-accessibility': 'off',
@@ -46,6 +46,14 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 'error',
         '@typescript-eslint/no-var-requires': 'error',
         '@typescript-eslint/no-unsafe-call': 'error',
+      },
+    },
+    {
+      files: ['./apps/web/**/*'],
+      extends: ['next/core-web-vitals'],
+      rules: {
+        // https://nextjs.org/docs/messages/no-html-link-for-pages
+        '@next/next/no-html-link-for-pages': ['error', './src/pages'],
       },
     },
   ],
