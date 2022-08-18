@@ -17,6 +17,7 @@
     "react-query": "3.39.2"
   },
   "devDependencies": {
+    "@monorepo/tailwind": "workspace:*",
     "@monorepo/tsconfig": "workspace:*",
     "@tailwindcss/forms": "0.5.2",
     "@tailwindcss/typography": "0.5.4",

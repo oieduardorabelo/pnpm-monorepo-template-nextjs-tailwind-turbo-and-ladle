@@ -73,7 +73,7 @@ const LoginPage: NextPage = () => {
         <meta name="description" content="Login" />
       </Head>
 
-      <div className="flex flex-col justify-center min-h-full w-full max-w-md">
+      <div className="flex min-h-full w-full max-w-md flex-col justify-center">
         {user.value ? (
           <AlertSuccess id="user-exists" label="Hello">
             <b>{user.value.email}</b>

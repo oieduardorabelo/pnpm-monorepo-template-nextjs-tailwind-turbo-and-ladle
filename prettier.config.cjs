@@ -3,8 +3,8 @@
  * You don't need to define per project Prettier configuration
  */
 module.exports = {
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: [require('prettier-plugin-tailwindcss')],
   printWidth: 120,
-  singleQuote: false,
-  trailingComma: "es5",
+  singleQuote: true,
+  trailingComma: 'es5',
 };

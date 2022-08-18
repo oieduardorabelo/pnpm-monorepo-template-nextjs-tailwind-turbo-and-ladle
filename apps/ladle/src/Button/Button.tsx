@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { PropsWithChildren } from "react";
+import clsx from 'clsx';
+import { PropsWithChildren } from 'react';
 
 // prettier-ignore
 const BUTTON_STYLES = {
@@ -24,13 +24,13 @@ const BUTTON_SIZES = {
 type ButtonProps = {
   variant?: keyof typeof BUTTON_STYLES;
   size?: keyof typeof BUTTON_SIZES;
-  type?: "button" | "submit";
+  type?: 'button' | 'submit';
 };
 export const Button = ({
   children,
-  type = "button",
-  variant = "default",
-  size = "small",
+  type = 'button',
+  variant = 'default',
+  size = 'small',
 }: PropsWithChildren<ButtonProps>) => (
   <button className={clsx(BUTTON_STYLES[variant], BUTTON_SIZES[size])} type={type}>
     {children}

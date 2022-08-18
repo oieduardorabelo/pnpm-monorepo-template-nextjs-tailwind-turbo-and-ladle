@@ -46,19 +46,19 @@ const HomePage: NextPage = () => {
             <table className="table-fixed">
               <thead className="border-b bg-gray-100">
                 <tr>
-                  <th className="text-sm font-semibold text-gray-900 px-6 py-4 text-left">#</th>
-                  <th className="text-sm font-semibold text-gray-900 px-6 py-4 text-left">Username</th>
-                  <th className="text-sm font-semibold text-gray-900 px-6 py-4 text-left">Email</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">#</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Username</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Email</th>
                 </tr>
               </thead>
               <tbody>
                 {usersQuery.data.map((user) => (
                   <tr key={user.id} className="border-b">
-                    <td className="text-sm text-gray-900 px-6 py-4 whitespace-nowrap font-semibold">
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900">
                       {user.id.slice(0, 6)}
                     </td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.username}</td>
-                    <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{user.email}</td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">{user.username}</td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">{user.email}</td>
                   </tr>
                 ))}
               </tbody>

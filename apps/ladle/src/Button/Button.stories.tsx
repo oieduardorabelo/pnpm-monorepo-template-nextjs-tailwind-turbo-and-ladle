@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { Button } from './Button';
 
 export const AllButtons = () => (
   <div className="p-8 dark:text-white">

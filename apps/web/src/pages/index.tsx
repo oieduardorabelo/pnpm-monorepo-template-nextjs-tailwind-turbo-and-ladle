@@ -17,7 +17,7 @@ const HomePage: NextPage = () => {
 
       <h1 className="text-center">Welcome to Project Template</h1>
       {user.value && (
-        <h2 className="text-lg bg-slate-200 px-2 rounded mt-4">
+        <h2 className="mt-4 rounded bg-slate-200 px-2 text-lg">
           Hello there, <b>{user.value.username}</b>. Let&apos;s build somethingn new!
         </h2>
       )}

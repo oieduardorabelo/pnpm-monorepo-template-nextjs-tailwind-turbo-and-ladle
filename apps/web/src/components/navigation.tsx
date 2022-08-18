@@ -21,7 +21,7 @@ export const Navigation = () => {
   }
   return (
     <nav className="grid grid-cols-2">
-      <ul className="flex flex-1 justify-center justify-self-end gap-4">
+      <ul className="flex flex-1 justify-center gap-4 justify-self-end">
         <li>
           <ActiveLink href="/">Home</ActiveLink>
         </li>
@@ -44,14 +44,14 @@ export const Navigation = () => {
         )}
       </ul>
       {user.value && (
-        <ul className="flex flex-1 justify-center justify-self-end gap-4">
+        <ul className="flex flex-1 justify-center gap-4 justify-self-end">
           <li>
-            <span className="bg-orange-200 text-orange-800 py-2 px-4 inline-block">
+            <span className="inline-block bg-orange-200 py-2 px-4 text-orange-800">
               Hello, <b>{user.value.username}</b>
             </span>
           </li>
           <li>
-            <button type="button" onClick={onClickLogout} className="py-2 px-4 inline-block bg-red-100 text-red-800">
+            <button type="button" onClick={onClickLogout} className="inline-block bg-red-100 py-2 px-4 text-red-800">
               Logout
             </button>
           </li>
@@ -69,8 +69,8 @@ function ActiveLink({ children, href }: ActiveLinkProps) {
   return (
     <Link href={href}>
       <a
-        className={clsx('py-2 px-4 inline-block', {
-          'hover:text-white hover:bg-blue-500': router.pathname !== href,
+        className={clsx('inline-block py-2 px-4', {
+          'hover:bg-blue-500 hover:text-white': router.pathname !== href,
           'bg-blue-500 text-white hover:bg-blue-600': router.pathname === href,
         })}
       >

@@ -1,4 +1,4 @@
-import "../build/output.css";
+import '../build/output.css';
 
 /**
  * If you need a global wrapper around all components
