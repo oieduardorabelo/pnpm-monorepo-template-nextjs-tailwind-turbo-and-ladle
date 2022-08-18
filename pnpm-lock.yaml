@@ -78,7 +78,6 @@ importers:
 
   packages/eslint:
     specifiers:
-      '@monorepo/tsconfig': workspace:*
       '@typescript-eslint/eslint-plugin': 5.33.0
       '@typescript-eslint/parser': 5.33.0
       eslint: 8.21.0
@@ -88,11 +87,11 @@ importers:
       '@typescript-eslint/parser': 5.33.0_qugx7qdu5zevzvxaiqyxfiwquq
       eslint: 8.21.0
     devDependencies:
-      '@monorepo/tsconfig': link:../tsconfig
       typescript: 4.7.4
 
   packages/prettier:
     specifiers:
+      '@monorepo/eslint': workspace:*
       prettier: 2.7.1
       prettier-package-json: 2.6.4
       prettier-plugin-tailwindcss: 0.1.13
@@ -100,6 +99,8 @@ importers:
       prettier: 2.7.1
       prettier-package-json: 2.6.4
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
+    devDependencies:
+      '@monorepo/eslint': link:../eslint
 
   packages/tailwind:
     specifiers:
