@@ -3,21 +3,19 @@
   "name": "pnpm-monorepo-template-nextjs-tailwind-turbo-and-ladle",
   "version": "0.0.1",
   "scripts": {
-    "build": "turbo run build",
-    "code:format": "prettier --write './**/*.{js,jsx,ts,tsx,cjs,mjs}'",
-    "code:format:packagejson": "prettier-package-json --write './package.json' './**/*/package.json'",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "lint:monorepo": "eslint --ext js,jsx,ts,tsx,cjs,mjs .",
+    "monorepo:prettier": "prettier --write './**/*.{js,jsx,ts,tsx,cjs,mjs}'",
+    "monorepo:prettier:packagejson": "prettier-package-json --write './package.json' './**/*/package.json'",
     "prepare": "husky install",
-    "test": "turbo run test"
+    "turbo:build": "turbo run build",
+    "turbo:dev": "turbo run dev",
+    "turbo:lint": "turbo run lint",
+    "turbo:test": "turbo run test"
   },
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
   "devDependencies": {
-    "@monorepo/eslint": "workspace:*",
     "@monorepo/prettier": "workspace:*",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",

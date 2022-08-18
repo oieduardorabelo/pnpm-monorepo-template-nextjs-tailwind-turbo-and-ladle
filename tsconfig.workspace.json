@@ -1,4 +1,0 @@
-// Make "@typescript-eslint/parser" happy by include top-level TS/JS files in lint-parser
-{
-  "include": [".eslintrc.cjs", "prettier.config.cjs"]
-}

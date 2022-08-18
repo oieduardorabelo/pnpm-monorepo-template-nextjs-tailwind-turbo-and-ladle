@@ -5,7 +5,7 @@
   "files": [
     "prettier.base.js"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "prettier": "2.7.1",
     "prettier-package-json": "2.6.4",
     "prettier-plugin-tailwindcss": "0.1.13"

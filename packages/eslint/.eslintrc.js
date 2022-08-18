@@ -1,4 +1,4 @@
-const eslintBaseConfig = require('@monorepo/eslint/eslint.base');
+const eslintBaseConfig = require('./eslint.base');
 
 module.exports = {
   ...eslintBaseConfig,
@@ -6,5 +6,4 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: 'tsconfig.json',
   },
-  ignorePatterns: ['**/build/'],
 };
