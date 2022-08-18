@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "pnpm-monorepo-started-nextjs-tailwind-turbo-and-ladle",
+  "name": "pnpm-monorepo-template-nextjs-tailwind-turbo-and-ladle",
   "version": "0.0.1",
   "scripts": {
     "build": "turbo run build",
