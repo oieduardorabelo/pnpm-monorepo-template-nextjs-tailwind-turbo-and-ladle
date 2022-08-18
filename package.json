@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "template-nextjs-react-query-typescript",
+  "name": "pnpm-monorepo-started-nextjs-tailwind-turbo-and-ladle",
   "version": "0.0.1",
   "scripts": {
     "build": "turbo run build",
