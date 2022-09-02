@@ -18,9 +18,9 @@
   },
   "devDependencies": {
     "@ladle/react": "2.1.1",
-    "@monorepo/eslint": "workspace:*",
-    "@monorepo/tailwind": "workspace:*",
-    "@monorepo/tsconfig": "workspace:*",
+    "@monorepo/eslint": "workspace:0.0.1",
+    "@monorepo/tailwind": "workspace:0.0.1",
+    "@monorepo/tsconfig": "workspace:0.0.1",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "npm-run-all": "4.1.5",
